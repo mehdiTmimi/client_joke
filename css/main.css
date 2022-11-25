@@ -1,0 +1,44 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+}
+h1{
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+main{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.addJoke{
+   width: 30%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.addJoke input{
+    margin: 5px;
+}
+.addJoke button{
+    width: 100px;
+}
+.addJoke>div:nth-child(1){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.listJoke{
+    width: 60%;
+}
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+td,th{
+    border:1px solid gray;
+}

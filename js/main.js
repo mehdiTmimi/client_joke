@@ -1,5 +1,6 @@
 const url="http://localhost:3000/";
 const tbody=document.getElementById("tbody")
+const addBtn=document.getElementById("addBtn")
 const addJokeToTable=(joke)=>{
     // creation des elements
     let tr= document.createElement("tr")
@@ -45,3 +46,33 @@ const load =()=>{
 });
 }
 load();
+
+
+// traitement d'ajout
+addBtn.addEventListener('click',(event)=>{
+    //recuperation des donnes sasies
+    let authorInput=document.getElementById("authorInput")
+    let jokeInput=document.getElementById("jokeInput")
+    let author=authorInput.value
+    let joke=jokeInput.value
+    //verification
+    if(!(author!="" && author.length>3 && 
+    joke!="" && joke.length>10))
+    {
+        alert("veuillez verifier vos champs")
+        return;
+    }
+    // envoi des donnees
+    let obj={joke:joke,author:author};
+    fetch(url+"jokes",
+    {
+        method:'POST',
+        body:JSON.stringify(obj)
+    }
+    ).then((response) => response.json())
+    .then(
+        data=>{
+            console.log(data)
+            addJokeToTable(data)}
+    ).catch(e=> alert(e))
+})
